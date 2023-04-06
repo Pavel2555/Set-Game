@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct SetCard {
+struct SetCard: Matchable {
   let number: Version
   let color: Version
   let shape: Version
@@ -25,5 +25,16 @@ struct SetCard {
     var description: String {
       return String(self.rawValue)
     }
+  }
+  
+  static func match(cards: [SetCard]) -> Bool {
+    guard cards.count == 3 else {return false}
+    let sum = [
+      cards.reduce(0, { $0 + $1.number.rawValue}),
+      cards.reduce(0, { $0 + $1.color.rawValue}),
+      cards.reduce(0, { $0 + $1.shape.rawValue}),
+      cards.reduce(0, { $0 + $1.fill.rawValue})
+    ]
+    return sum.reduce(true, { $0 && ($1 % 3 == 0) })
   }
 }

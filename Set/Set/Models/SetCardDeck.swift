@@ -23,6 +23,7 @@ struct SetCardDeck {
         }
       }
     }
+    cards.shuffle()
   }
   
   mutating func draw() -> SetCard? {

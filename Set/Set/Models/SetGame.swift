@@ -43,7 +43,7 @@ struct SetGame<CardContent> where CardContent: Matchable {
   }
   
   mutating func choose(card: Card) {
-    if let chosenIndex = cards.firstIndex(where: {$0.id == card.id}),
+    if let chosenIndex = cards.firstIndex(matching: card),
        !cards[chosenIndex].isSelected,
        !cards[chosenIndex].isMatched {
       
