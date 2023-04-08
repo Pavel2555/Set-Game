@@ -15,16 +15,15 @@ struct SetCardView: View {
   var body: some View {
     GeometryReader { geom in
       VStack {
-        Spacer()
-        let cardValue = card.number.rawValue
-        ForEach(0..<cardValue, id: \.self) { _ in
+        ForEach(0..<card.number.rawValue, id: \.self) { _ in
           cardShape().frame(height: geom.size.height / 4)
         }
-        Spacer()
       }
       .padding(10)
       .foregroundColor(colors[card.color.rawValue - 1])
       .aspectRatio(aspectRatio, contentMode: .fit)
+      .position(x: geom.frame(in: .local).midX,
+                y: geom.frame(in: .local).midY)
     }
   }
   
@@ -41,7 +40,7 @@ struct SetCardView: View {
   private func shapeFill<setShape>(shape: setShape) -> some View where setShape: Shape {
     ZStack {
       switch card.fill {
-      case .v1: shape.stroke()
+      case .v1: shape.stroke(lineWidth: 3)
       case .v2: shape.fillWithBorder()
       case .v3: shape.stripe()
       }
@@ -49,8 +48,12 @@ struct SetCardView: View {
   }
 }
 
-//struct SetCardView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        SetCardView()
-//    }
-//}
+struct SetCardView_Previews: PreviewProvider {
+    static var previews: some View {
+      Group {
+        SetCardView(card: SetCard(number: .v2, color: .v1, shape: .v3, fill: .v2))
+        SetCardView(card: SetCard(number: .v2, color: .v1, shape: .v3, fill: .v2))
+      }
+      
+    }
+}
