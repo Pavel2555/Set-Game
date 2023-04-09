@@ -11,10 +11,11 @@ class SetCardGame: ObservableObject {
   @Published private var model: SetGame<SetCard> = SetCardGame.createSetGame()
   
   static var numberOfCardsForStart = 12
-  static private var deck = SetCardDeck()
+  static var deck = SetCardDeck()
   
   static func createSetGame() -> SetGame<SetCard> {
-    SetGame<SetCard>(numberOfCardsForStart: numberOfCardsForStart, numberOfCardsInDeck: deck.cards.count) { index in
+    deck = SetCardDeck()
+    return SetGame<SetCard>(numberOfCardsForStart: numberOfCardsForStart, numberOfCardsInDeck: deck.cards.count) { index in
       deck.cards[index]
     }
   }

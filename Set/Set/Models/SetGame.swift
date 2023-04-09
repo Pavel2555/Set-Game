@@ -28,7 +28,9 @@ struct SetGame<CardContent> where CardContent: Matchable {
     cards = [Card]()
     deck = [Card]()
     
-    for ind in 0..<numberOfCardsForStart {
+    self.numberOfCardsForStart = numberOfCardsForStart
+    
+    for ind in 0..<numberOfCardsInDeck {
       let content = cardContentFactory(ind)
       deck.append(Card(content: content, id: ind))
     }
@@ -72,10 +74,10 @@ struct SetGame<CardContent> where CardContent: Matchable {
   }
   
   private mutating func onlySelectedCard(_ onlyIndex: Int) {
-    cards.indices.forEach({
-      cards[$0].isMatched = $0 == onlyIndex
-      cards[$0].isNotMatched = false
-    })
+    for index in cards.indices {
+      cards[index].isSelected = index == onlyIndex
+      cards[index].isNotMatched = false
+    }
   }
   
   private mutating func changeCards() {
@@ -89,7 +91,9 @@ struct SetGame<CardContent> where CardContent: Matchable {
       }
     } else {
       //REMOVE MATCHED CARDS
-      cards = cards.enumerated().filter({!replaceIndices.contains($0.offset)}).map({$0.element})
+      cards = cards.enumerated()
+        .filter({!replaceIndices.contains($0.offset)})
+        .map({$0.element})
     }
   }
   

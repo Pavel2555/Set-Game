@@ -9,21 +9,59 @@ import SwiftUI
 
 struct SetCardGameView: View {
   @StateObject var viewModel = SetCardGame()
+  @State var shouldDelay: Bool = true
   
   static let mainBackgroundColor: Color = .blue
   
   var body: some View {
-    Grid(viewModel.cards) { card in
-      CardView(card: card)
-        .onTapGesture {
-          viewModel.choose(card: card)
+    GeometryReader { geom in
+      Grid(viewModel.cards) { card in
+        CardView(card: card)
+          .transition(AnyTransition.asymmetric(
+            insertion: AnyTransition.offset(flyFrom(for: geom.size)),
+            removal: AnyTransition.offset(flyTo(for: geom.size)))
+            .combined(with: AnyTransition.scale(scale: 0.5)))
+          .animation(Animation.easeInOut(duration: 0.5)
+            .delay(transitionDelay(card: card)), value: 0)
+           
+          .onTapGesture {
+            withAnimation(Animation.easeInOut(duration: 0.5)) {
+              viewModel.choose(card: card)
+            }
+          }
+          .padding(2)
+      }
+      .onAppear {
+        withAnimation(Animation.easeInOut(duration: 0.5)) {
+          deal()
         }
-        .padding(2)
+      }
+      .padding(2)
+      .background(SetCardGameView.mainBackgroundColor)
     }
-    .padding()
-    .onAppear { viewModel.deal() }
-    .background(SetCardGameView.mainBackgroundColor)
-    
+  }
+  
+  private func deal() {
+    viewModel.deal()
+    DispatchQueue.main.async {
+      shouldDelay = false
+    }
+
+  }
+  
+  private func flyFrom(for size: CGSize) -> CGSize {
+    CGSize(width: 0.0, height: size.height)
+  }
+  
+  private func flyTo(for size: CGSize) -> CGSize {
+    CGSize(width: CGFloat.random(in: -3*size.width...3*size.width), height: CGFloat.random(in: -2*size.height...(-size.height)))
+  }
+  
+  private let cardTransitionDelay: Double = 0.2
+  
+  private func transitionDelay(card: SetGame<SetCard>.Card) -> Double {
+    guard shouldDelay else { return 0 }
+    return Double(viewModel.cards.firstIndex(matching: card)!) * cardTransitionDelay
   }
   
   struct CardView: View {
