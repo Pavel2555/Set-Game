@@ -38,6 +38,7 @@ struct SetGame<CardContent> where CardContent: Matchable {
   }
   
   mutating func deal(_ numberOfCards: Int? = nil) {
+    guard deck.count > 0 else { return }
     let n = numberOfCards ?? numberOfCardsForStart
     for _ in 0..<n {
       cards.append(deck.remove(at: 0))

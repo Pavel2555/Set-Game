@@ -23,6 +23,9 @@
 		D027D7F129DE94FC00A256E7 /* Wave.swift in Sources */ = {isa = PBXBuildFile; fileRef = D027D7F029DE94FC00A256E7 /* Wave.swift */; };
 		D027D7F329DE99E200A256E7 /* StrippedRect.swift in Sources */ = {isa = PBXBuildFile; fileRef = D027D7F229DE99E200A256E7 /* StrippedRect.swift */; };
 		D027D7F529DE9C7700A256E7 /* Shape+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D027D7F429DE9C7700A256E7 /* Shape+Extensions.swift */; };
+		D04AE03829E4939200A9D774 /* GameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D04AE03729E4939200A9D774 /* GameView.swift */; };
+		D04AE03A29E493DB00A9D774 /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D04AE03929E493DB00A9D774 /* CardView.swift */; };
+		D0662E4129E330B900C40332 /* Transition+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0662E4029E330B900C40332 /* Transition+Extensions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -43,6 +46,9 @@
 		D027D7F029DE94FC00A256E7 /* Wave.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Wave.swift; sourceTree = "<group>"; };
 		D027D7F229DE99E200A256E7 /* StrippedRect.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StrippedRect.swift; sourceTree = "<group>"; };
 		D027D7F429DE9C7700A256E7 /* Shape+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Shape+Extensions.swift"; sourceTree = "<group>"; };
+		D04AE03729E4939200A9D774 /* GameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameView.swift; sourceTree = "<group>"; };
+		D04AE03929E493DB00A9D774 /* CardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
+		D0662E4029E330B900C40332 /* Transition+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Transition+Extensions.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -69,6 +75,7 @@
 			isa = PBXGroup;
 			children = (
 				D00A5FEE29DF1C7E0091F94E /* Array+Identifiable.swift */,
+				D0662E4029E330B900C40332 /* Transition+Extensions.swift */,
 			);
 			path = Tools;
 			sourceTree = "<group>";
@@ -134,6 +141,8 @@
 			children = (
 				D027D7D229DD4EE700A256E7 /* SetCardGameView.swift */,
 				D00A5FE829DEE3E90091F94E /* SetCardView.swift */,
+				D04AE03929E493DB00A9D774 /* CardView.swift */,
+				D04AE03729E4939200A9D774 /* GameView.swift */,
 				D00A5FEC29DF198E0091F94E /* Grid */,
 				D027D7ED29DDCA0400A256E7 /* Shape */,
 			);
@@ -235,6 +244,9 @@
 				D027D7E829DDB38600A256E7 /* SetCard.swift in Sources */,
 				D027D7DF29DD500E00A256E7 /* SetGame.swift in Sources */,
 				D027D7D129DD4EE700A256E7 /* SetApp.swift in Sources */,
+				D04AE03829E4939200A9D774 /* GameView.swift in Sources */,
+				D04AE03A29E493DB00A9D774 /* CardView.swift in Sources */,
+				D0662E4129E330B900C40332 /* Transition+Extensions.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
