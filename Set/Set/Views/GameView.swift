@@ -24,9 +24,8 @@ struct GameView: View {
             withAnimation(Animation.easeInOut(duration: 0.7)) {
               viewModel.choose(card: card)
             }
-          }
-          .padding(2)
-      }
+          }.padding(2)
+      }.padding(16)
     }
   }
   

@@ -56,6 +56,7 @@ struct SetGame<CardContent> where CardContent: Matchable {
           //MATCHED
           for index in selectedIndices {
             cards[index].isMatched = true
+            changeCards()
           }
         } else {
           //NOT MATCHED
@@ -67,10 +68,14 @@ struct SetGame<CardContent> where CardContent: Matchable {
         if selectedIndices.count == 1 || selectedIndices.count == 0 {
           cards[chosenIndex].isSelected = true
         } else {
-          changeCards()
           onlySelectedCard(chosenIndex)
         }
       }
+    } else if let chosenIndex = cards.firstIndex(matching: card),
+              cards[chosenIndex].isSelected,
+              !cards[chosenIndex].isMatched,
+              !cards[chosenIndex].isNotMatched {
+      cards[chosenIndex].isSelected = false
     }
   }
   
