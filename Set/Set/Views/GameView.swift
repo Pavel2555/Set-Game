@@ -13,14 +13,15 @@ struct GameView: View {
   
   var body: some View {
     GeometryReader { geom in
-      Grid(viewModel.cards) { card in
-        CardView(card: card)
+      let cardsSpacingValue = CardDrawingConstants.init(cardsCount: viewModel.cards.count).dynamicLayerValue
+      Grid(viewModel.cards, spacingValue: cardsSpacingValue) { card in
+        CardView(card: card, cardsCount: viewModel.cards.count)
           .transition(.cardTransition(size: geom.size))
           .animation(Animation.easeInOut(duration: 0.7)
             .delay(transitionDelay(card: card)))
         //                       value: shouldDelay)
           .onTapGesture {
-            withAnimation(Animation.easeInOut(duration: 1)) {
+            withAnimation(Animation.easeInOut(duration: 0.7)) {
               viewModel.choose(card: card)
             }
           }

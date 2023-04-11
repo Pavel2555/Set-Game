@@ -16,7 +16,7 @@ struct SetCardGameView: View {
   var body: some View {
     VStack {
       GameView(viewModel: viewModel, shouldDelay: $shouldDelay).onAppear {
-        withAnimation(Animation.easeInOut(duration: 1)) {
+        withAnimation(Animation.easeInOut(duration: 0.7)) {
           deal()
         }
       }

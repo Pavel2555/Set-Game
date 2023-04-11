@@ -10,15 +10,17 @@ import SwiftUI
 struct Grid <Item, ItemView>: View where Item: Identifiable, ItemView: View {
   var items: [Item]
   var viewForItem: (Item) -> ItemView
+  var spacingValue: CGFloat = .zero
   
-  init(_ items: [Item], viewForItem: @escaping (Item) -> ItemView ){
+  init(_ items: [Item], spacingValue: CGFloat, viewForItem: @escaping (Item) -> ItemView ){
     self.items = items
+    self.spacingValue = spacingValue
     self.viewForItem = viewForItem
   }
   
   var body: some View {
     GeometryReader { geometry in
-      self.body(for: GridLayout(itemCount: self.items.count, in: geometry.size))
+      self.body(for: GridLayout(itemCount: self.items.count, in: geometry.size, spacingValue: spacingValue))
     }
   }
   

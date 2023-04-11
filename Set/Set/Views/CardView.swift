@@ -9,23 +9,24 @@ import SwiftUI
 
 struct CardView: View {
   var card: SetGame<SetCard>.Card
+  
   var borderColors: [Color] = [.green, .red, .yellow]
+  var cardsCount: Int = 12
+  private var cardDrawingConstants: CardDrawingConstants {
+    CardDrawingConstants(cardsCount: cardsCount)
+  }
   
   var body: some View {
     if card.isSelected || !card.isMatched {
-      SetCardView(card: card.content)
+      SetCardView(card: card.content, cardItemsRatio: cardDrawingConstants.dynamicRatio)
         .background(.white)
-        .cornerRadius(cornerRadius)
+        .cornerRadius(cardDrawingConstants.cornerRadius)
         .overlay(
-          RoundedRectangle(cornerRadius: cornerRadius)
-            .stroke(highlightColor(), lineWidth: borderLineWidth)
+          RoundedRectangle(cornerRadius: cardDrawingConstants.cornerRadius)
+            .stroke(highlightColor(), lineWidth: cardDrawingConstants.borderLineWidth)
         )
     }
   }
-  
-  private let cornerRadius: CGFloat = 20
-  private let borderLineWidth: CGFloat = 8
-  // сделать динамические границы и радиус в зависимости от количества карт
   
   private func highlightColor() -> Color {
     var color: Color = .white
@@ -38,16 +39,7 @@ struct CardView: View {
       } else {
         color = borderColors[2]
       }
-    } else {
-      color = SetCardGameView.mainBackgroundColor
     }
     return color
   }
 }
-
-//struct CardView_Previews: PreviewProvider {
-//  //  let cardMock =
-//  static var previews: some View {
-//   CardView()
-//  }
-//}

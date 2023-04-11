@@ -25,6 +25,7 @@
 		D027D7F529DE9C7700A256E7 /* Shape+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D027D7F429DE9C7700A256E7 /* Shape+Extensions.swift */; };
 		D04AE03829E4939200A9D774 /* GameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D04AE03729E4939200A9D774 /* GameView.swift */; };
 		D04AE03A29E493DB00A9D774 /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D04AE03929E493DB00A9D774 /* CardView.swift */; };
+		D04AE03E29E4A1B700A9D774 /* CardDrawingConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = D04AE03D29E4A1B700A9D774 /* CardDrawingConstants.swift */; };
 		D0662E4129E330B900C40332 /* Transition+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0662E4029E330B900C40332 /* Transition+Extensions.swift */; };
 /* End PBXBuildFile section */
 
@@ -48,6 +49,7 @@
 		D027D7F429DE9C7700A256E7 /* Shape+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Shape+Extensions.swift"; sourceTree = "<group>"; };
 		D04AE03729E4939200A9D774 /* GameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameView.swift; sourceTree = "<group>"; };
 		D04AE03929E493DB00A9D774 /* CardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
+		D04AE03D29E4A1B700A9D774 /* CardDrawingConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardDrawingConstants.swift; sourceTree = "<group>"; };
 		D0662E4029E330B900C40332 /* Transition+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Transition+Extensions.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -140,11 +142,12 @@
 			isa = PBXGroup;
 			children = (
 				D027D7D229DD4EE700A256E7 /* SetCardGameView.swift */,
+				D04AE03729E4939200A9D774 /* GameView.swift */,
 				D00A5FE829DEE3E90091F94E /* SetCardView.swift */,
 				D04AE03929E493DB00A9D774 /* CardView.swift */,
-				D04AE03729E4939200A9D774 /* GameView.swift */,
 				D00A5FEC29DF198E0091F94E /* Grid */,
 				D027D7ED29DDCA0400A256E7 /* Shape */,
+				D04AE03D29E4A1B700A9D774 /* CardDrawingConstants.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -232,6 +235,7 @@
 			files = (
 				D027D7E129DD50CC00A256E7 /* SetCardGame.swift in Sources */,
 				D00A5FE929DEE3E90091F94E /* SetCardView.swift in Sources */,
+				D04AE03E29E4A1B700A9D774 /* CardDrawingConstants.swift in Sources */,
 				D027D7D329DD4EE700A256E7 /* SetCardGameView.swift in Sources */,
 				D027D7F329DE99E200A256E7 /* StrippedRect.swift in Sources */,
 				D027D7EC29DDC92F00A256E7 /* Grid.swift in Sources */,

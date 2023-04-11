@@ -11,12 +11,13 @@ struct SetCardView: View {
   var card: SetCard
   var colors: [Color] = [.orange, .green, .cyan]
   var aspectRatio: CGFloat = 3/4
+  var cardItemsRatio: Double = 4
   
   var body: some View {
     GeometryReader { geom in
       VStack {
         ForEach(0..<card.number.rawValue, id: \.self) { _ in
-          cardShape().frame(height: geom.size.height / 4)
+          cardShape().frame(height: geom.size.height / cardItemsRatio)
         }
       }
       .padding(10)
